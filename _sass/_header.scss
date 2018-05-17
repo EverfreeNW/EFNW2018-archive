@@ -1,0 +1,126 @@
+// Cover images
+cover {
+  display: block;
+  position: absolute;
+  img {
+    z-index: -1;
+    width: 100%;
+  }
+}
+
+.cover-credit {
+  position: absolute;
+  top: 120px;
+  right: 1rem;
+  text-shadow: 0 0 3px black;
+  color: white;
+  z-index: 10001;
+  @include media-query($on-mobile) {
+    display: none !important;
+  }
+  span {
+    display: inline-block;
+    padding: .5em;
+    background: white;
+    color: black;
+    opacity: 0;
+    transform: translateX(4px);
+    border-radius: 4px;
+    text-shadow: none;
+    visibility: hidden;
+    @extend .transition;
+  }
+  icon {
+    font-size: 1.5em;
+    opacity: .75;
+  }
+  &:hover {
+    span {
+      display: inline-block;
+      width: auto;
+      visibility: visible;
+      opacity: .85;
+      transform: translateX(0px); // display: inline-block;
+      // padding: .25rem;
+    }
+    icon {
+      opacity: 1;
+    }
+  }
+}
+
+// Ribbons
+.ribbon {
+  font-size: 36px;
+  /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+  width: 55%;
+  max-width: 500px;
+  position: relative;
+  background: #e38ae8; // $efnw-pink;
+  // color: #fff;
+  text-align: center;
+  padding: .25em .5em;
+  /* Adjust to suit */
+  margin: 1.5em auto 2em;
+  /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+  margin-top: 30vw;
+  margin-bottom: -2.5em;
+  h1.title {
+    color: #fff9ab;
+  }
+  @include media-query($on-tablet) {
+    font-size: 30px;
+    width: auto;
+    max-width: 70%; // margin-top: 3rem;
+    h1.title {
+      font-size: 2.5rem;
+    }
+  }
+  @include media-query($on-mobile) {
+    margin-top: 3rem;
+    margin-bottom: 2em;
+    font-size: 18px;
+  }
+}
+
+.ribbon:before,
+.ribbon:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -1em;
+  border: 1.5em solid #f6c6fe; // darken($efnw-pink, 15);
+  z-index: -1;
+}
+
+.ribbon:before {
+  left: -2em;
+  border-right-width: 1.5em;
+  border-left-color: transparent;
+}
+
+.ribbon:after {
+  right: -2em;
+  border-left-width: 1.5em;
+  border-right-color: transparent;
+}
+
+.ribbon .ribbon-content:before,
+.ribbon .ribbon-content:after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-style: solid;
+  border-color: #804f7c transparent transparent transparent;
+  bottom: -1em;
+}
+
+.ribbon .ribbon-content:before {
+  left: 0;
+  border-width: 1em 0 0 1em;
+}
+
+.ribbon .ribbon-content:after {
+  right: 0;
+  border-width: 1em 1em 0 0;
+}

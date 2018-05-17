@@ -1,0 +1,174 @@
+// Generic styles that can't fine a home anywhere else go here
+// Logo Fonts
+.ef {
+  font-family: "Berkshire Swash", $title-font-family;
+  font-weight: normal;
+  line-height: 1em;
+}
+
+.nw {
+  font-family: "Fjalla One", $title-font-family;
+  font-weight: normal;
+  line-height: .25em;
+  text-transform: uppercase;
+  margin-bottom: 1.5em;
+}
+
+h1.title {
+  text-shadow: none;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+.post-content {
+  background: rgba(0, 0, 0, .5);
+  padding: 4em 2em 2em;
+  border-radius: 20px;
+  @include media-query($on-mobile) {
+    padding: .5em;
+  }
+}
+
+// Page content
+.post-header {
+  text-align: center;
+  h1 {
+    @extend .title;
+    max-width: 100%;
+  }
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+  >li {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+#guests {
+  .post-meta {
+    // font-size: $small-font-size;
+    // opacity: .75;
+    text-align: center;
+    display: block;
+  }
+}
+
+// Posts
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-top: $spacing-unit / 2;
+  @include media-query($on-tablet) {
+    font-size: 36px;
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+}
+
+// Legacy pricing tables
+table.reg-types-table {
+  background: white;
+  color: black;
+  font-size: .75rem;
+  line-height: 1.25rem;
+  thead {
+    background: lightblue;
+  }
+  td,
+  th {
+    padding: 10px;
+    text-align: center;
+  }
+  td:first-child,
+  th:first-child {
+    text-align: left;
+  }
+  .fullprice {
+    text-decoration: line-through;
+    opacity: .4;
+    margin-right: 3px;
+  }
+}
+
+// 404
+#four-oh-four {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: $secondary;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  h1 {
+    margin-top: 1em;
+  }
+  a {
+    color: white;
+  }
+}
+
+// Payments
+#invoice {
+  background: white;
+  padding: 20px;
+  color: black;
+  box-shadow: 0 0 12px $efnw-blue;
+  &:before {
+    content: "Your Invoice";
+    font-weight: bold;
+  }
+  .lineitem {
+    border-top: 1px solid lightGray;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+  .totalLineitem {
+    background: $efnw-yellow;
+    font-weight: bold;
+    border-top: 1px solid lightGray;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    &:before {
+      content: 'Payment Total: ';
+    }
+  }
+}
+
+// Google form submit btn
+.jfk-button {
+  background: $efnw-teal;
+  padding: .5em 1em !important;
+  margin-left: 310px;
+  @include media-query($on-tablet) {
+    margin-left: 0px;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    background: lighten($efnw-teal, 10%);
+  }
+}
+
+// Archive notice
+.archive-notice {
+  position: absolute;
+  display: block;
+  z-index: 65536;
+  left: 50%;
+  width: 150px;
+  margin-left: -75px;
+  background: crimson;
+  color: white;
+  font-weight: bold;
+  font-size: .75rem;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  text-align: center;
+}

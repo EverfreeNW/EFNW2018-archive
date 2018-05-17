@@ -1,0 +1,46 @@
+---
+layout: page
+title: Form Example
+permalink: /form/example/
+---
+
+<p class="text-center">Fill out this form and we'll get back to you asap!</p>
+
+<form action="/volunteer" enctype="multipart/form-data" method="get">
+	<label for="fan_name">
+		<span class="required">Fan Name</span>
+		<input disabled type="text" id="fan_name" name="fan_name" placeholder="Fiddlesticks" required>
+	</label>
+	<label for="email">
+		<span class="required">Email</span>
+		<input disabled type="email" id="email" name="fan_name" placeholder="twilight@example.com" required>
+	</label>
+	<label for="things">
+		<span class="required">How do you want to help out?</span>
+		<textarea disabled name="#" id="things" name="things" cols="30" rows="5" placeholder="Change the world!"
+		></textarea>
+	</label>
+	<label for="criminal">
+		<span class="required">I've murdered someone before</span>
+		<input disabled id="criminal" name="criminal" type="checkbox">
+	</label>
+	<label for="best_pony">
+		<span class="required">Who's best pony?</span>
+		<select id="best_pony" name="best_pony" required>
+			<option value="fluttershy">Fluttershy</option>
+			<option value="fluttershy">Fluttershy</option>
+			<option value="fluttershy">Flutfsterfsfsgsdfffy</option>
+			<option value="fluttershy">Flufsttefrfshyy</option>
+		</select>
+	</label>
+	<label for="color">
+		<span>What's your favorite color?</span>
+		<input disabled type="color" name="best_pony" id="color" required>
+	</label>
+	<label for="">
+		<span></span>
+		<span>
+			<input disabled type="submit" class="button button-large" value="Submit Application">
+		</span>
+	</label>
+</form>

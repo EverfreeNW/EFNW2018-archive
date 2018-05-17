@@ -1,0 +1,88 @@
+---
+layout: page
+title: Confirm Payment
+permalink: /register/escape-room/confirm/
+cover:
+  name: Registration
+  extension: png
+  artist: imdrunkontea
+background: "#FDEAC3"
+---
+
+<style type="text/css">
+#invoice .totalLineitem:before {
+    content: none;
+}
+#purchaseBadgeForm #invoice .totalLineitem > div:first-child {
+    text-align: left;
+}
+</style>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Confirm</h3>
+    </div>
+    <div id="purchaseBadgeForm" class="panel-body">
+        <p>Your registration is almost complete. Please press confirm below to finish your purchase.</p>
+        <div id="invoice"></div>
+        <form id="confirm_form" method="POST" action="#" style="width:100%; text-align:right">
+            <input disabled type="hidden" name="uuid" value="">
+            <button disabled class="button button-large">Confirm <icon class="icon-right"></icon></button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+  function parseQuery(qstr) {
+    var query = {};
+    var a = (qstr[0] === '?' ? qstr.substr(1) : qstr).split('&');
+    for (var i = 0; i < a.length; i++) {
+      var b = a[i].split('=');
+      query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
+    }
+    return query;
+  }
+  var queryMap = parseQuery(window.location.search);
+  var uuid = queryMap['uuid'];
+
+  jQuery.ajax('/registration/escaperoom/api/getCart.ajax.php', {
+    data: {
+      'uuid': uuid
+    }
+  }).then(function(result) {
+    if (result.status != 'OK') {
+      alert("There was an error processing your payment:\n" + result.error + "\n\nPlease try again or contact it@everfreenw.com if this problem persists.");
+      return;
+    }
+    var invoice = document.querySelector('#invoice');
+    var lineItem = document.createElement('div');
+    lineItem.className = 'lineitem';
+    var desc = document.createElement('div');
+    desc.appendChild(document.createTextNode(result.data['description']));
+    lineItem.appendChild(desc);
+    var price = document.createElement('div');
+    price.appendChild(document.createTextNode('$' + result.data['price']));
+    lineItem.appendChild(price);
+    invoice.appendChild(lineItem);
+
+    lineItem = document.createElement('div');
+    lineItem.className = 'totalLineitem';
+    desc = document.createElement('div');
+    desc.appendChild(document.createTextNode("Payment Total:"));
+    lineItem.appendChild(desc);
+    price = document.createElement('div');
+    price.appendChild(document.createTextNode('$' + result.data['price']));
+    lineItem.appendChild(price);
+    invoice.appendChild(lineItem);
+
+    document.querySelector('#confirm_form input[name="uuid"]').value = uuid;
+
+    invoice.style.display = 'block';
+
+  }, function(error) {
+    alert("There was an error processing your payment. Please try again or contact it@everfreenw.com if this problem persists.");
+  });
+});
+</script>

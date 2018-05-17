@@ -1,0 +1,181 @@
+// Buttons
+.button, .jfk-button {
+  background: $secondary;
+  color: white!important;
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  padding: .5em 1em;
+  text-decoration: none;
+  border-radius: $border-radius;
+  font-weight: bold;
+  -webkit-user-select: none;
+  margin-bottom: $base-font-size;
+  border: none;
+  outline: none;
+  text-shadow: none;
+  box-shadow: 0 4px 1px rgba(0,0,0,.25);
+  transition: all 200ms ease;
+  font-weight: bold;
+  opacity: 1;
+  &-large, &.jfk-button {
+    font-size: $base-font-size * 1.25;
+    @include media-query($on-mobile) {
+      font-size: $base-font-size;
+    }
+  }
+  &:hover, &:focus, &:active {
+    background: lighten($secondary, 10%);
+    text-decoration: none;
+  }
+  &:active {
+    box-shadow: 0 0px 1px rgba(0,0,0,.25);
+    // box-shadow: inset 0 0 20px rgba(0,0,0,.5);
+    transform: translateY(4px);
+  }
+  &:disabled, &-disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+  &-twitter {
+    background: $efnw-blue-light;
+    &:hover, &:focus, &:active {
+      background: lighten($efnw-blue-light, 10%);
+    }
+  }
+}
+
+// Form Fields
+form {
+  max-width: 1000px;
+  margin: auto;
+  // color: $black;
+  // background: white;
+  // border: 1px dotted $black;
+  padding: $spacing-unit / 2;
+  &>label, &>ol>label, .label, .ss-form-entry {
+    @extend .row;
+    &>label, &>span, &>input, &>textarea, &>select, &>[role="group"] {
+      @extend .column;
+      padding: 0;
+    }
+    &>input, &>textarea, &>select {
+      padding: .25em .45em;
+    }
+    &>input, &>select {
+      height: 3em;
+    }
+    & > span:first-of-type, &>label:first-of-type {
+      font-weight: bold;
+      flex-basis: 40%;
+      flex-basis: calc(40% - (#{$spacing-unit} / 2));
+      max-width: 40%;
+      padding-right: $spacing-unit;
+      text-align: right;
+      @include media-query($on-tablet) {
+        text-align: left;
+      }
+      @include media-query($on-mobile) {
+        text-align: left;
+      }
+    }
+  }
+  input, textarea, select {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    // border-radius: 4px;
+    padding: .25em .45em;
+    border: none;
+    border-bottom: 2px solid $black;
+    &:focus {
+      // Outline for accessibility reasons
+      outline: 2px solid $black;
+      &:invalid {
+        outline: 2px solid $red;
+      }
+    }
+    &:valid {
+      // border-bottom-color: green;
+    }
+    &:valid:empty {
+      // border-bottom-color: $black;
+    }
+    &:empty {
+      // border-bottom-color: $grey;
+    }
+    &[required]:invalid {
+      border-bottom-color: $red;
+    }
+  }
+  input[type=submit], button, .button {
+    display: block;
+    // margin: auto;
+  }
+  input[type=text], input[type=email], input[type=phone], input[type=color], input[type=cash], input[type=name] {
+    // border: none;
+  }
+  .ss-q-other-container input, .other {
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
+    padding: 0 5px;
+  }
+  span.required:after {
+    content: '*';
+    color: $red;
+    position: relative;
+    margin-left: 2px;
+    margin-right: -9px;
+  }
+  .ss-required-asterisk {
+    color: $red;
+    margin-left: 2px;
+    margin-right: -9px;
+    position: absolute;
+  }
+  .ss-choices {
+    list-style: none;
+    margin-left: 0;
+  }
+  .jfk-button {
+    // opacity: .5;
+  }
+  .ss-q-title {
+    font-weight: bold;
+  }
+}
+
+// Google Form
+.ss-question-list {
+  .required-message, .error-message, .docs-icon {
+    display: none;
+  }
+}
+.ss-password-warning, td#progress-container {
+  display: none;
+}
+#navigation-table {
+  display: block;
+  border: none;
+  td.ss-form-entry {
+    display: block;
+    border: none;
+  }
+}
+form.ss-form {
+  max-width: 100%;
+  ol {
+    max-width: 100%;
+  }
+}
+.ss-secondary-text, .ss-section-description {
+  font-weight: normal;
+  font-size: .8em;
+  line-height: 1.5em;
+}
+.ss-no-ignore-whitespace {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.ss-section-header {
+  margin-bottom: 1em;
+}

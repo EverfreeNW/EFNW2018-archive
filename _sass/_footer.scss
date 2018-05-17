@@ -1,0 +1,57 @@
+// Footer
+footer {
+  text-align: center;
+  background: rgba(0,0,0,.5);
+  p a {
+    color: inherit;
+    text-decoration: underline!important;
+  }
+  @include media-query($on-mobile) {
+    background: $efnw-blue-dark;
+  }
+  .icon-heart {
+    color: $red;
+  }
+}
+
+// Newsletter subscribe
+#newsletter_subscribe, .tiny-form {
+  display: inline-block;
+  margin: 0 auto 1em;
+  padding: 0;
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 0 10px $efnw-blue-dark;
+  icon.icon-mail {
+    padding: 0 1em;
+    background: $efnw-teal;
+    line-height: 3.4em;
+    color: white;
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+  button.button {
+    background: $efnw-teal;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-bottom: 0; // .5em;
+    margin-right: .35em;
+  }
+  @include media-query($on-mobile) {
+    icon.icon-mail {
+      display: block;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      border-bottom-left-radius: 0px;
+    }
+    input {
+      display: block;
+      margin-bottom: .5em;
+    }
+    button.button {
+      display: block;
+      width: 90%;
+      margin: 0 auto .75em;
+    }
+  }
+}

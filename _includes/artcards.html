@@ -1,0 +1,37 @@
+{% if page.artcards-data %}{% assign artcards = site.data.[page.artcards-data] %}{% endif %}
+{% if page.artcards %}{% assign artcards = page.artcards %}{% endif %}
+{% if artcards %}
+
+<section class="content text-center" id="artcards">
+  <container>
+    <row float="center">
+      {% for entry in artcards %}
+        <columnz width="{{ entry.cellwidth }}" class="person" style="min-width: 200px">
+          <div class="card" style="background: {{ entry.background }}; color: {{ entry.foreground }};">
+            {% if entry.prize %}
+              <div class="card-content">
+                <h1 style="margin-bottom: 2px;">{{ entry.prize }}</h1>
+                {% if entry.prizedesc %}<strong>{{ entry.prizedesc }}</strong>{% endif %}
+              </div>
+            {% endif %}
+            <div class="card-cover open-lightbox" style="background-image: url({{ site.baseurl }}/images/artcontest/{{ entry.thumb }});height: {{ entry.imgheight }};" href="{{ site.baseurl }}/images/artcontest/{{ entry.file }}"></div>
+            <div class="card-content">
+              <strong>{{ entry.title }}</strong><br />
+              By {{ entry.artist }}<br /><br />
+            </div>
+            <div class="card-links">
+              <row>
+                {% if entry.twitter %}<div class="column"><a href="{{ entry.twitter }}" target="_blank" style="color: {{ entry.background }}; background: {{ entry.foreground }}"><icon class="icon-twitter"></icon> Twitter</a></div>{% endif %}
+                {% if entry.tumblr %}<div class="column"><a href="{{ entry.tumblr }}" target="_blank" class="link-tumblr" style="color: {{ entry.background }}; background: {{ entry.foreground }}"><icon class="icon-tumblr"></icon> Tumblr</a></div>{% endif %}
+                {% if entry.instagram %}<div class="column"><a href="{{ entry.instagram }}" target="_blank" style="color: {{ entry.background }}; background: {{ entry.foreground }}"><icon class="icon-file"></icon> Instagram</a></div>{% endif %}
+                {% if entry.gallery %}<div class="column"><a href="{{ entry.gallery }}" target="_blank" style="color: {{ entry.background }}; background: {{ entry.foreground }}"><icon class="icon-gallery"></icon> Gallery</a></div>{% endif %}
+              </row>
+            </div>
+          </div>
+        </columnz>
+      {% endfor %}
+    </row>
+  </container>
+</section>
+<script src="/scripts/lightbox.js"></script>
+{% endif %}

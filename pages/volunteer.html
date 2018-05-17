@@ -1,0 +1,479 @@
+---
+layout: page
+title: Volunteer
+permalink: /volunteer/
+cover:
+  name: Volunteer
+  extension: png
+  artist: imdrunkontea
+thumb: "/images/news/volunteer-by-imdrunkontea.jpg"
+preview: "Staff applications for Everfree Northwest are open! Follow this link to apply for one of our many great volunteer positions!"
+preview-tweet: "Staff applications for Everfree Northwest are open! Click here to apply for one of our many great volunteer positions!"
+---
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <style>
+        .select2-results__option {
+            color: #333;
+        }
+
+        .volunteerTable .hint {
+            font-size: 0.8em;
+        }
+
+        .volunteerTable > div.required > div:first-child::after {
+            color: red;
+            content: "*";
+        }
+
+        .volunteerTable > div:not(:last-child) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            margin-bottom: 1em;
+            padding-bottom: 1em;
+        }
+
+        .volunteerTable > div.short > div {
+            float: left;
+        }
+
+        .volunteerTable > div.short > div:first-child {
+            margin: 3px 0;
+            min-width: 250px;
+        }
+
+        .volunteerTable > div.short > div:not(:last-child) {
+            margin-right: 1em;
+        }
+
+        .volunteerTable > div.short::after {
+            clear: both;
+            content: ".";
+            display: block;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .volunteerTable > div.short > p::before {
+            clear: both;
+            content: ".";
+            display: block;
+            visibility: hidden;
+        }
+
+        .volunteerTable > div.wide > div {
+            float: none;
+        }
+
+        .volunteerTable > div.wide > div > textarea {
+            width: 90%;
+        }
+
+        .positions_select {
+            max-width: 100%;
+            width: 300px;
+        }
+
+        .r-attention {
+            border: 1px solid red;
+        }
+
+        .missingInputNotice, .duplicateDeptNotice {
+            color: red;
+            display: none;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+      function checkMissing(form) {
+        form = $(form);
+        var anyMissing = false;
+        var missingTag = $('.missingInputNotice', form);
+        $('.required:visible input, .required:visible select', form).each(function(idx, elem) {
+          elem = $(elem);
+          if (elem.hasClass('select2-search__field')) { return; }
+          if (elem.is('input[type="checkbox"]')) {
+            if (!elem.is(':checked')) {
+              elem.addClass('r-attention');
+              elem.focus(function() { $(this).removeClass('r-attention'); missingTag.hide(); });
+              anyMissing = true;
+            }
+          } else {
+            var val = elem.val();
+            if (val == '') {
+              elem.addClass('r-attention');
+              if( elem.hasClass('positions_select') ) {
+                var parent = elem.parent();
+                $('.r-attention+span.select2 span.select2-selection', parent).focus(function() { $('.r-attention',$(this).closest('div')).removeClass('r-attention'); missingTag.hide(); });
+              }
+              else {
+                elem.focus(function() { $(this).removeClass('r-attention'); missingTag.hide(); });
+              }
+              anyMissing = true;
+            }
+          }
+        });
+
+        var username = $('input[name="username"]', form);
+        if (! username.val().match(/^[a-zA-Z0-9\-_]+$/)) {
+          username.addClass('r-attention');
+          username.focus(function() { $(this).removeClass('r-attention'); missingTag.hide(); });
+          anyMissing = true;
+        }
+
+        if (anyMissing) { missingTag.show(); return false; }
+        missingTag.hide();
+
+        var dupTag = $('.duplicateDeptNotice', form);
+        var checkDuplicate = function(first,second) {
+            if( first.val() == second.val() ) {
+                first.addClass('r-attention');
+                second.addClass('r-attention');
+                $('.r-attention+span.select2 span.select2-selection', first.parent())
+                  .focus(function() { $('.r-attention',$(this).closest('div')).removeClass('r-attention'); dupTag.hide(); });
+                $('.r-attention+span.select2 span.select2-selection', second.parent())
+                  .focus(function() { $('.r-attention',$(this).closest('div')).removeClass('r-attention'); dupTag.hide(); });
+                return true;
+              }
+              return false;
+        }
+        var deptFirst = $('select[name="preferred_department_first"]', form);
+        var deptSecond = $('select[name="preferred_department_second"]', form);
+        var deptThird = $('select[name="preferred_department_third"]', form);
+
+        var anyDups =        checkDuplicate(deptFirst, deptSecond);
+        anyDups = anyDups || checkDuplicate(deptFirst, deptThird);
+        anyDups = anyDups || checkDuplicate(deptSecond, deptThird);
+
+        if(anyDups) { dupTag.show(); return false; }
+        dupTag.hide();
+        return true;
+      }
+
+      $(document).ready(function() {
+
+          $('.positions_select').select2({
+              placeholder: 'Select position'
+          });
+          $('body form').submit(function() {
+            if (!checkMissing(this)) {
+              return false;
+            }
+            return true;
+          });
+      });
+    </script>
+
+
+
+<div class="text-center lead">Check out our <a href="/volunteer/open-positions/" style="color:white!important:">Open Positions</a>!</div>
+<div style="text-align:center">
+    <div
+        style="display:inline-block;width:100%;max-width:960px;text-align:left;background:white;color:#333;padding:10px;border-radius:5px;margin:1em 0">
+
+
+
+        <form enctype="multipart/form-data" method="POST"
+              action="#">
+            <div class="volunteerTable">
+                <div class="required short">
+                    <div>Legal Name</div>
+                    <div>
+                        <input disabled type="text" name="name" required>
+                    </div>
+                    <p class="hint">Please note that, by default, the legal name you provide will be listed on a staff
+                        directory, and that reasonable measures have been taken to ensure the staff directory will only
+                        be accessible to EFNW staff, partners, agents, and other authorized personnel. To request that
+                        your legal name not be included in that staff directory, please email <a
+                            href="mailto:hr@everfreenw.com">hr@everfreenw.com</a> with your request. Legal names will
+                        still be retained for reasonable business purposes, and will be released if required by law.</p>
+                </div>
+                <div class="short">
+                    <div>Fan Name / Alias</div>
+                    <div><input disabled type="text" name="fan_name"></div>
+                </div>
+                <div class="required short">
+                    <div>Preferred Name</div>
+                    <div><input disabled type="text" name="preferred_name" required></div>
+                    <p class="hint">Since some people prefer to go by their “Fan Name” and others prefer their real
+                        name, let us know what name you prefer to go by. This is also the name that will be printed in
+                        the staff section of the con book.</p>
+                </div>
+                <div class="required short">
+                    <div>Preferred Username</div>
+                    <div><input disabled type="text" name="username" required></div>
+                    <p class="hint">Everfree Northwest has lots of tools available to our staff, such as a staff forum.
+                        Let us know what username you'd like to have.<br>(Usernames can have letters, numbers, hyphens (-), and underscores (_), but no spaces.)</p>
+                </div>
+                <div class="short">
+                    <div>Other Aliases</div>
+                    <div><input disabled type="text" name="aliases"></div>
+                    <p class="hint">In case you have any other handles people might know you by, let us know so that our
+                        staff will recognize you!</p>
+                </div>
+                <div class="short">
+                    <div>Preferred Pronouns</div>
+                    <div><input disabled list="pronouns-defined" name="pronouns">
+                         <datalist id="pronouns-defined">
+                              <option value="He/Him">
+                              <option value="She/Her">
+                              <option value="They/Them">
+                              <option value="Ze/Zir">
+                         </datalist></div>
+                </div>
+                <div class="required short">
+                    <div>Phone</div>
+                    <div><input disabled type="text" name="phone" required></div>
+                </div>
+                <div class="required short">
+                    <div>Email</div>
+                    <div><input disabled type="text" name="email" required></div>
+                </div>
+                <div class="short">
+                    <div>Discord ID</div>
+                    <div><input disabled type="text" name="discord"></div>
+                    <p class="hint">A Discord ID is not required to apply, but most Everfree Northwest communication will take place through <a href="https://discordapp.com">Discord</a>.</p>
+                </div>
+                <div class="wide">
+                    <div>Other Contact Info</div>
+                    <div><textarea disabled name="other_contact_info"></textarea></div>
+                </div>
+                <div class="required short">
+                    <div>Shirt Size</div>
+                    <div><select name="shirt_size" required>
+                            <option value=""></option>
+                            <option value="xs">XS</option>
+                            <option value="small">S</option>
+                            <option value="medium">M</option>
+                            <option value="large">L</option>
+                            <option value="xl">XL</option>
+                            <option value="2xl">2XL</option>
+                            <option value="3xl">3XL</option>
+                            <option value="4xl">4XL</option>
+                            <option value="5xl">5XL</option>
+                            <option value="6xl">6XL</option>
+                        </select></div>
+                </div>
+                <div class="required short">
+                    <div>Birth Date (MM/DD/YYYY)</div>
+                    <div><input disabled type="date" name="birthdate" required></div>
+                    <p class="hint">To volunteer at Everfree Northwest 2018 you must be 16 years of age on or before
+                        May 17, 2018. To volunteer without a parent or guardian's approval you must be 18 years of
+                        age on or before May 17, 2018. If you are not going to be 18 years of age by this date, a
+                        Human Resources representative will supply you with a "Minor Volunteer Agreement."</p>
+                </div>
+                <div class="required wide">
+                    <div>What's your first choice position you'd like to apply for?</div>
+                    <div>
+                        <select name="preferred_department_first" class="positions_select" required>
+                          <option value="">Select position</option>
+                          <?= open_positions_select() ?>
+                          </select>
+                        <p class="hint">Look at our <a href="/volunteer/open-positions" target="_blank">Open Positions</a>!</p>
+                    </div>
+                </div>
+                <div class="required wide">
+                    <div>What's your second choice position you'd like to apply for?</div>
+                    <div>
+                        <select name="preferred_department_second" class="positions_select" required>
+                        <option value="">Select position</option>
+                        <?= open_positions_select() ?>
+                        </select>
+                        <p class="hint">Look at our <a href="/volunteer/open-positions/" target="_blank">Open Positions</a>!</p>
+                    </div>
+                </div>
+                <div class="required wide">
+                    <div>What's your third choice position you'd like to apply for?</div>
+                    <div>
+                        <select name="preferred_department_third" class="positions_select" required>
+                        <option value="">Select position</option>
+                        <?= open_positions_select() ?>
+                        </select>
+                        <p class="hint">Look at our <a href="/volunteer/open-positions/" target="_blank">Open Positions</a>!</p>
+                    </div>
+                </div>
+
+                <div class="required wide">
+                    <div>What knowledge, skills, and/or experiences do you have that might be relevant to any/all of the
+                        positions for which you are applying?
+                    </div>
+                    <div><textarea disabled name="skills" required></textarea></div>
+                </div>
+                <div class="required short">
+                    <div>Have you volunteered for Everfree Northwest previously?</div>
+                    <div><select name="volunteered_for_efnw_previously" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select></div>
+                </div>
+                <div class="wide">
+                    <div>Have you worked for any other conventions? If so, which conventions have you worked for?</div>
+                    <div><textarea disabled name="previous_conventions"></textarea></div>
+                </div>
+                <div class="required short">
+                    <div>Are you regularly within driving distance of Seattle?</div>
+                    <div>
+                        <select name="local" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <p class="hint">Even though Everfree Northwest is only 3 days out of the year, months of physical
+                        preparation goes into our event! Although it's not required in order to volunteer, we're looking
+                        for every helping hoof to help move, carry, inventory, setup, and create our supplies,
+                        regardless of your department.</p>
+                </div>
+                <div class="required short">
+                    <div>Are you interested in participating in local promo videos?</div>
+                    <div>
+                        <select name="promo_videos" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="required short">
+                    <div>Are you interested in participating in the Street Team?</div>
+                    <div>
+                        <select name="street_team" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <p class="hint">Street Team is an opportunity for staffers and attendees alike to promote Everfree
+                        Northwest in their local communities in exchange for perks. If you select “Yes” you will be
+                        contacted at a later date with more information.</p>
+                </div>
+                <div class="wide">
+                    <div>Please list the preferred times for which you will be available for work during the con, and
+                        any times that you would prefer not to work.
+                    </div>
+                    <div><textarea disabled name="preferred_times"></textarea></div>
+                </div>
+                <div class="required short">
+                    <div>Would you be available for graveyard shifts (late night, possibly early morning)?</div>
+                    <div>
+                        <select name="graveyard_shifts" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="required short">
+                    <div>Would you be available to help with setup on Thursday, May 17, 2018?</div>
+                    <div>
+                        <select name="available_early" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="required short">
+                    <div>Would you be available to help with cleanup on Monday, May 21, 2018 after the conclusion of the convention?
+                    </div>
+                    <div>
+                        <select name="available_after" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="wide">
+                    <div>Do you require any special accommodations to perform your duties?</div>
+                    <div><textarea disabled name="special_accomidations"></textarea></div>
+                </div>
+                <div class="wide">
+                    <div>How did you hear about Everfree Northwest?</div>
+                    <div><textarea disabled name="how_did_you_hear"></textarea></div>
+                </div>
+                <div class="wide">
+                    <div>How did you hear about staffing for Everfree Northwest?</div>
+                    <div><textarea disabled name="how_did_you_hear_staffing"></textarea></div>
+                </div>
+                <div class="required short">
+                    <div>Do you intend to Cosplay during your assigned shifts as a staff member?</div>
+                    <div>
+                        <select name="cosplay" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <p class="hint">Cosplay is allowed and encouraged for most positions on staff. However, some
+                        positions require a more professional appearance, and therefore may not be allowed to cosplay
+                        while on duty. Be sure to contact your department's director and make sure that cosplay is
+                        appropriate for your position.</p>
+                </div>
+                <div class="wide">
+                    <div>Do you have any questions about staffing, the convention itself, or any other related
+                        questions?
+                    </div>
+                    <div><textarea disabled name="questions"></textarea></div>
+                </div>
+                <div class="short">
+                    <div>Headshot</div>
+                    <div>
+                        <input disabled type="file" name="headshot">
+                    </div>
+                    <p class="hint">Although it is completely optional, we like to be able to recognize all of our staff
+                        at the convention! Please attach a real-life (non-OC) picture of yourself for inclusion in our
+                        staff directory.</p>
+                </div>
+                <div class="short">
+                    <div>OC Picture</div>
+                    <div>
+                        <input disabled type="file" name="oc">
+                    </div>
+                    <p class="hint">We know lots of staff have an OC and like to have it displayed on their profile. If
+                        you would like to include an avatar image for inclusion on your staff profile, attach it
+                        here!</p>
+                </div>
+                <div class="required short">
+                    <div>Have you ever been convicted of any crime?</div>
+                    <div>
+                        <select name="crimes" required>
+                            <option value=""></option>
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <p class="hint">Please understand that convictions do not mean you cannot join staff, as exceptions can be made pending case review by a member of EFNW Human Resources. You acknowledge that Pegasi Northwest reserves the right to perform background checks at any time for such convictions, but Pegasi Northwest is under no duty or obligation to do so.</p>
+                </div>
+                <div class="required">
+                    <div><input disabled type="checkbox" name="accurate" required> I acknowledge that the statements on this application form are true and accurate to the best of my knowledge.
+                    </div>
+                </div>
+                <div class="required">
+                    <div><input disabled type="checkbox" name="terms_of_agreement" required> I have completely read through and agree to abide by the <a href="/volunteer/terms/" target="_blank">Volunteer Terms of Agreement</a>. If you are under age (under 18), a Human Resources representative will contact you to provide a Minor Volunteer Agreement.
+                    </div>
+                </div>
+                <div class="short">
+                    <div>Appologies, but at the moment we do not allow robots to work at EFNW. Please prove you're not a robot.</div>
+                    <div><div class="g-recaptcha" data-sitekey="6LcADQoUAAAAABvRPMvrSoFouT2UChN2DChEyDr4"></div>
+			<div class="recaptcha-broken"><strong>Please disable Adblock, Tracking Protection, or NoScript to fill out this captcha!</strong></div>
+		    </div>
+                </div>
+            </div>
+
+            <div class="missingInputNotice">You are missing a required input.</div>
+            <div class="duplicateDeptNotice">You cannot apply for the same position twice.</div>
+            <input disabled type="submit" value="Submit" class="button button-large">
+        </form>
+
+    </div>
+</div>
+
+<script>
+    var captchaLoadedCallback = function() {
+        $('.recaptcha-broken').hide();
+    }
+</script>
+<script src='https://www.google.com/recaptcha/api.js?onload=captchaLoadedCallback' async defer></script>

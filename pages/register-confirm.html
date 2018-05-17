@@ -1,0 +1,73 @@
+---
+layout: page
+title: Confirm Payment
+permalink: /register/confirm/
+cover:
+  name: Registration
+  extension: png
+  artist: imdrunkontea
+background: "#FDEAC3"
+---
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Confirm</h3>
+    </div>
+    <div class="panel-body">
+        <p>Your registration is almost complete. Please press confirm below to finish your purchase.</p>
+        <div id="invoice"></div>
+        <form id="confirm_form" method="POST" action="/register/success" style="width:100%; text-align:right">
+            <input disabled type="hidden" name="uuid" value="">
+            <button disabled class="button button-large">Confirm <icon class="icon-right"></icon></button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        function parseQuery() {
+            var query = window.location.search.substring(1);
+            var vars = query.split('&');
+            var queryParms = {};
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split('=');
+                queryParms[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            }
+            return queryParms;
+        }
+        function formatPrice(p) {
+            return '$' + p.toFixed(2);
+        }
+
+        var queryParms = parseQuery();
+        document.getElementById('confirm_form').uuid.value = queryParms.uuid;
+        $.ajax('/registration/api/getInvoice.ajax.php?uuid=' + queryParms.uuid).then(
+            function (invoice) {
+                var totalPrice = 0;
+                var invoiceDiv = document.getElementById('invoice');
+                for (var i = 0; i < invoice.data.length; i++) {
+                    var item = invoice.data[i];
+                    var lineItem = document.createElement('div');
+                    lineItem.className = 'lineitem';
+                    var name = document.createElement('div');
+                    name.appendChild(document.createTextNode(item[0]));
+                    lineItem.appendChild(name);
+                    var price = document.createElement('div');
+                    price.appendChild(document.createTextNode(formatPrice(item[1])));
+                    lineItem.appendChild(price);
+                    invoiceDiv.appendChild(lineItem);
+                    totalPrice += item[1];
+                }
+                var totalLineItem = document.createElement('div');
+                totalLineItem.className = 'totalLineitem';
+                totalLineItem.appendChild(document.createElement('div'));
+                var totalPriceDiv = document.createElement('div');
+                totalPriceDiv.appendChild(document.createElement('div'));
+                totalPriceDiv.appendChild(document.createTextNode(formatPrice(totalPrice)));
+                totalLineItem.appendChild(totalPriceDiv);
+                invoiceDiv.appendChild(totalLineItem);
+            }, function () {
+                alert("There was an error getting your registration information. Please return to the registration page and try again.");
+            }
+        );
+    });
+</script>

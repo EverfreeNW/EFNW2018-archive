@@ -1,0 +1,32 @@
+---
+layout: page
+title: News
+permalink: /news/
+cover:
+  name: News
+  extension: png
+  artist: imdrunkontea
+background: "#3c543c"
+---
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <h1 class="text-left no-margin-bottom">
+          <a class="post-link text-left" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h1>
+        <row column-count="2">
+            <column width="50">
+                <img src="{{ post.thumb | prepend: site.baseurl }}" />
+            </column>
+            <column width="50">
+                <p>{{ post.preview }}</p>
+            </column>
+        </row>
+        <p class="post-meta">Posted on {{ post.date | date: "%b %-d, %Y" }}</p>
+        <br>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe"><a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="button">Subscribe via RSS <icon class="icon-right"></icon></a></p>

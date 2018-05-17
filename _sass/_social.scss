@@ -1,0 +1,65 @@
+// Social media button and links
+// Brand colors: http://brandcolors.net/
+$twitter: #55acee;
+$facebook: #3b5998;
+$youtube: #cd201f;
+$deviantart: #05cc47;
+$tumblr: #35465c;
+$mlpforums: #ff0086;
+$poniverse: #38dbe8;
+$github: #333;
+
+.link-twitter:hover { color: $twitter; }
+.link-facebook:hover { color: $facebook; }
+.link-youtube:hover { color: $youtube; }
+.link-deviantart:hover { color: $deviantart; }
+.link-tumblr:hover { color: $tumblr; }
+.link-mlpforums:hover { color: $mlpforums; }
+.link-poniverse:hover { color: $poniverse; }
+.link-github:hover { color: $github; }
+
+.bg-twitter { background: $twitter; }
+.bg-facebook { background: $facebook; }
+.bg-youtube { background: $youtube; }
+.bg-deviantart { background: $deviantart; }
+.bg-tumblr { background: $tumblr; }
+.bg-mlpforums { background: $mlpforums; }
+.bg-poniverse { background: $poniverse; }
+.bg-github { background: $github; }
+
+.button.bg-twitter:hover { background: lighten($twitter, 8%); }
+.button.bg-facebook:hover { background: lighten($facebook, 8%); }
+.button.bg-youtube:hover { background: lighten($youtube, 8%); }
+.button.bg-deviantart:hover { background: lighten($deviantart, 8%); }
+.button.bg-tumblr:hover { background: lighten($tumblr, 8%); }
+.button.bg-mlpforums:hover { background: lighten($mlpforums, 8%); }
+.button.bg-poniverse:hover { background: lighten($poniverse, 8%); }
+.button.bg-github:hover { background: lighten($github, 8%); }
+
+.social-links {
+  a {
+    text-shadow: none;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: linear-gradient(#e2c28e, #f1eec9);
+    color: rgb(14, 52, 74);
+    font-size: 25px;
+    border-radius: 50%;
+    margin: 10px 5px;
+    transition: all 300ms ease;
+    box-shadow: 0 0 10px rgba(50, 50, 50, .75);
+    &:hover {
+      box-shadow: 0 0 20px $efnw-blue-light;
+      transform: scale(1.1); // color: $efnw-blue;
+    }
+  }
+  &-larger {
+    a {
+      font-size: 36px;
+      width: 70px;
+      height: 70px;
+      line-height: 72px;
+    }
+  }
+}

@@ -1,0 +1,264 @@
+---
+layout: page
+title: Escape Room
+permalink: /register/escape-room/
+cover:
+  name: Registration
+  extension: png
+  artist: imdrunkontea
+background: "#FDEAC3"
+---
+
+<style type="text/css">
+.card {
+    color: black;
+    background: white;
+    margin-bottom: 2em;
+}
+.card .card-content {
+    padding: 1em;
+}
+.card .card-content h2 {
+    margin-top: 0;
+}
+.itemTable td, .itemTable th {
+    padding: 2px 5px;
+}
+a.buy-btn {
+    color: #e2d6bb;
+    background: #04543d;
+    display: block;
+    margin: .25em 0;
+    padding: .25em;
+    border-radius: 8px;
+    transition: all 300ms ease;
+    box-shadow: 0 3px 0 rgba(100, 100, 100, 0.5);
+}
+a.buy-btn:hover, a.buy-btn:focus, a.buy-btn:active {
+    opacity: .8;
+    text-decoration: none;
+}
+a.buy-btn.disabled {
+    pointer-events: none !important;
+    opacity: 0.3 !important;
+}
+
+#regcode-modal {
+    margin-top: 60px;
+}
+#regcode-modal a:hover {
+    color: inherit;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.modal-dialog {
+    display: none;
+}
+
+/* Some button CSS from bootstrap */
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn:hover {
+  color: #333;
+  text-decoration: none;
+}
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-default:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+/* Modal content from bootstrap */
+.modal-open {
+  overflow: hidden;
+}
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.modal-header .close {
+  margin-top: -2px;
+}
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+</style>
+
+<!-- So that the loader GIF gets prefetched by the browser. -->
+<div style="display:none"><img src="/registration/vendor/static/ajax-loader.gif"></div>
+
+<h1>Escape Room Registration</h1>
+
+<row>
+  <column width="100">
+    <div class="card">
+      <div class="card-content">
+        <h2>Mystery Of The Seaponies</h2>
+        <p>All new this year is the Mystery Of The Seaponies room! You arrive for a visit with your cousin, Impossible Theorem, only to find her missing! Her journal indicates she may have gone…into the sea?!? Pour through her lab and take a journey into the ocean to rescue her from whatever trouble she has managed to get herself into.</p>
+        <p>Tickets are $40 per group to rent the room for a 1-hour time slot. Each escape room is designed for groups of two to six people, but parents are welcome to observe. Foals (aged twelve and under) are welcome, but require parental supervision. Find a time that works for you and your friends and reserve your slot to uncover the <span style="font-style:italic">Mystery Of The Seaponies</span>!</p>
+
+        <hr style="margin:1em 0;border-top:1px solid black">
+        <p>All tickets are $40 and are processed through PayPal. You must already be registered for Everfree Northwest to purchase an escape room ticket.</p>
+        <p><b>Escape Room ticket online-sales have closed. All remaining tickets will be available for purchase at the Registration Desk at-con.</b></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h2>Escape from Camp Discord</h2>
+        <p>You've arrived at camp only to find that Discord has taken over and turned everything into puzzles! Can you solve them to earn the merit badges you need to graduate?</p>
+        <p>Tickets are $40 per group to rent the room for a 1-hour time slot. Each escape room is designed for groups of two to six people, but parents are welcome to observe. Foals (aged twelve and under) are welcome, but require parental supervision. Find a time that works for you and your friends and reserve your slot to <span style="font-style:italic">Escape from Camp Discord</span>!</p>
+        <hr style="margin:1em 0;border-top:1px solid black">
+        <p>All tickets are $40 and are processed through PayPal. You must already be registered for Everfree Northwest to purchase an escape room ticket.</p>
+
+        <p><b>Escape Room ticket online-sales have closed. All remaining tickets will be available for purchase at the Registration Desk at-con.</b></p>
+      </div>
+    </div>
+
+  </column>
+</row>

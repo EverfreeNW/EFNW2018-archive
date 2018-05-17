@@ -1,0 +1,49 @@
+<head>
+  <!-- Meta tags -->
+  <title>{% capture title %}{% if page.home %}{{ site.title }} | {{ page.title }}{% elsif page.title %}{{ page.title }} | {{ site.title
+      }}{% else %}{{ site.title }}{% endif %}{% endcapture %}{{ title }}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{% capture description %}{% if page.preview %}{{ page.preview }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}{{ description }}">
+  <meta name="keywords" content="{{ site.keywords }}">
+  <link rel="canonical" href="{% capture canonical %}{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.produrl }}{% endcapture %}{{ canonical }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.produrl }}" />
+
+  <!-- Facebook tags -->
+  <meta property="og:title" content="{% capture title-og %}{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}{{ title-og }}" />
+  <meta property="og:url" content="{{ canonical }}" />
+  <meta property="og:description" content="{% capture description-short %}{% if page.preview %}{{ page.preview }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 172 }}{% else %}{{ site.description-short }}{% endif %}{% endcapture %}{{ description-short }}" />
+  <meta property="og:image" content="{% capture image-og %}{{ site.produrl }}{% if page.thumb %}{{ page.thumb }}{% elsif page.cover %}/images/covers/{{ page.cover.name | slugify }}{% if page.cover.artist %}-by-{{ page.cover.artist | replace: ' ', '' | slugify }}{% endif %}-md.{{ page.cover.extension }}{% endif %}{% endcapture %}{{ image-og }}" />
+  <meta property="fb:page_id" content="{{ site.handle }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{{ site.title }}"/>
+
+  <!-- Twitter tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title-og }}" />
+  <meta name="twitter:url" content="{{ canonical }}" />
+  <meta name="twitter:description" content="{% capture description-tweet %}{% if page.preview-tweet %}{{ page.preview-tweet }}{% elsif page.preview %}{{ page.preview }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 140 }}{% else %}{{ site.description-tweet }}{% endif %}{% endcapture %}{{ description-tweet }}" />
+  <meta name="twitter:image" content="{{ image-og }}" />
+  <meta name="twitter:site" content="@{{ site.handle }}"/>
+  <meta name="twitter:creator" content="@{{ site.handle }}"/>
+
+  <!-- Styles -->
+  <link rel="icon" href="/efnw-logo.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="{{ "/styles/main.css" | prepend: site.baseurl }}?{{ site.time | date: "%m%d%H%N" }}">
+  {% if site.google-fonts %}<link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.google-fonts }}&subset={{ site.google-fonts-subsets }}">{% endif %}
+  {% if site.typekit %}<link rel="stylesheet" href="https://use.typekit.net/{{ site.typekit }}.css">{% endif %}
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Berkshire+Swash&text=Everf%20">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One&text=NORTHWES%20">
+  <style>
+    {% if page.background %}body { background: {{ page.background }}; } {% endif %}
+  </style>
+  {% if page.pagestyles %}{{ page.pagestyles }}{% endif %}
+
+  <!-- Scripts -->
+  <!-- TODO: Move jQuery to footer -->
+  {% if site.dev == true %}<script src="{{ site.baseurl }}/scripts/jquery-3.2.1.min.js"></script>
+  {% else %}<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  {% endif %}
+  {% if page.pagescripts %}{{ page.pagescripts }}{% endif %}
+</head>

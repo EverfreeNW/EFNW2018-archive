@@ -1,0 +1,32 @@
+# Site settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://everfreenw.com" # the base hostname & protocol for your site
+produrl: "https://everfreenw.com" # production url to force jekyll to build links correctly
+dev: false # development mode for local jquery and debug scipts
+archive: true # archive mode to tell users information is outdated
+
+# Build settings
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+gems:
+   - jemoji
+   - jekyll-redirect-from
+
+# Metadata
+keywords: "everfree northwest, efnw, my little pony, friendship is magic, mlp, convention, family-friendly, seattle, washington, seatac, seattle bronycon"
+
+# Third party services
+google-fonts: "Open+Sans:400,700"
+google-fonts-subsets: "latin"
+google-analytics: "UA-55409488-3"
+typekit: aqy0ezv
+
+# Commonly used lingo
+title: "Everfree Northwest"
+location: "Seattle, Washington"
+email: info@everfreenw.com
+description: Everfree Northwest, the first 3-day pony convention, is excited to be putting on their 7th annual convention May 18-20, 2018! Everfree Northwest is a family-friendly convention held in Seattle, Washington, with fun for all ages. Join us and our loveable mascots, like adorable orca pony Marina, in celebrating our Everfree Family this year!
+description-short: Everfree Northwest, the first 3-day pony convention, is excited to be putting on their 7th annual convention May 18-20, 2018 in Seattle, Washington, with fun for all ages!
+description-tweet: Everfree Northwest, is excited to be putting on their 7th annual convention May 18-20, 2018 in Seattle, Washington, with fun for all ages!
+handle: EverfreeNW

@@ -1,0 +1,54 @@
+<footer class="site-footer">
+
+  <container>
+    <!-- <a href="#top" class="button back-to-top hidden-mobile">Back to Top <icon class="icon-up"></icon></a> -->
+    <p>
+      <small><strong>Subscribe to the Everfree Northwest newsletter:</strong></small>
+    </p>
+    {% include form-newsletter.html %}
+    <p class="no-margin-bottom">
+      <small><strong>Follow us on social media:</strong></small>
+    </p>
+    <div class="social-links">
+      <a href="https://mlpforums.com/forum/132-everfree-northwest/" target="_blank" class="link-mlpforums"><icon class="icon-mlpforums" title="MLP Forums"></icon></a>
+      <a href="https://twitter.com/EverfreeNW" target="_blank" class="link-twitter" title="@EverfreeNW"><icon class="icon-twitter"></icon></a>
+      <a href="https://facebook.com/EverfreeNW" target="_blank" class="link-facebook" title="Facebook"><icon class="icon-facebook"></icon></a>
+      <a href="https://www.youtube.com/user/EverfreeNorthwest" target="_blank" class="link-youtube" title="YouTube"><icon class="icon-youtube"></icon></a>
+      <a href="https://EverfreeNW.deviantart.com/" target="_blank" class="link-deviantart" title="DeviantArt"><icon class="icon-deviantart"></icon></a>
+      <a href="https://EverfreeNW.tumblr.com" target="_blank" class="link-tumblr" title="Tumblr"><icon class="icon-tumblr"></icon></a>
+      <a href="https://www.fimfiction.net/group/199291/everfree-northwest-readers-and-writers" target="_blank" class="link-fimfic"><icon class="icon-fimfic" title="FimFiction"></icon></a>
+      <a href="https://github.com/EverfreeNW" target="_blank" class="link-github"><icon class="icon-github" title="GitHub"></icon></a>
+      <a href="mailto:info@everfreenw.com" target="_blank" class="link-mail"><icon class="icon-mail" title="Contact Us"></icon></a>
+    </div>
+
+    <p class="no-margin-bottom"><small>
+      We are proud to partner with <icon class="icon-poniverse"></icon> <a href="https://poniverse.net/">Poniverse</a> for our <icon class="icon-mlpforums" title="LP Forums"></icon> <a href="https://mlpforums.com/forum/132-everfree-northwest/" target="_blank">online discussion forums</a>!
+      <br>
+      &copy; Pegasi Northwest, 2011-2018. Website crafted with <icon class="icon-heart" title="love"></icon> by <a href="https://twitter.com/pixelyunicorn" target="_blank"> Pixely</a>, <a href="http://github.com/TaikoDragon">Taiko</a> and the EFNW '18 team.
+      <br>
+      Art by <a href="https://imdrunkontea.deviantart.com" target="_blank">imdrunkontea</a>, <a href="https://kellythedrawinguni.deviantart.com/" target="_blank">KellyTheDrawingUnicorn</a>, <a href="https://talonsoficeandfire.deviantart.com/" target="_blank">Talons of Ice and Fire</a>, <a href="https://twitter.com/ChristaDoodles" target="_blank">Christa D</a>, &amp; others where noted.
+      <br>
+      My Little Pony: Friendship is Magic and related media belong exclusively to Hasbro, Inc. and/or its subsidiaries.
+    </small></p>
+  </container>
+
+</footer>
+
+<script src="{{ site.baseurl }}/scripts/picturefill-2.3.1.min.js"></script>
+<script src="{{ site.baseurl }}/scripts/site.js"></script>
+
+{% if site.dev != true %}
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google-analytics }}"></script>
+<script>
+if (!(navigator.doNotTrack == "1" || window.doNotTrack == "1")) {
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', '{{ site.google-analytics }}');
+
+}
+</script>
+{% endif %}

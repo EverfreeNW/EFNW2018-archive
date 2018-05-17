@@ -1,0 +1,56 @@
+---
+layout: blank
+---
+<cover>
+  {% if page.cover-image %}
+    <img src="{{ page.cover-image }}"
+    alt="Page cover image">{% endif %}
+  {% if page.cover %}
+  <img src="/images/covers/{{ page.cover.name | slugify }}{% if page.cover.artist %}-by-{{ page.cover.artist | replace: ' ', '' | slugify }}{% endif %}-md.{{ page.cover.extension }}" srcset="
+    /images/covers/{{ page.cover.name | slugify }}{% if page.cover.artist %}-by-{{ page.cover.artist | replace: ' ', '' | slugify }}{% endif %}-4k.{{ page.cover.extension }} 3300w,
+    /images/covers/{{ page.cover.name | slugify }}{% if page.cover.artist %}-by-{{ page.cover.artist | replace: ' ', '' | slugify }}{% endif %}-hd.{{ page.cover.extension }} 2000w,
+    /images/covers/{{ page.cover.name | slugify }}{% if page.cover.artist %}-by-{{ page.cover.artist | replace: ' ', '' | slugify }}{% endif %}-lg.{{ page.cover.extension }} 1600w,
+    /images/covers/{{ page.cover.name | slugify }}{% if page.cover.artist %}-by-{{ page.cover.artist | replace: ' ', '' | slugify }}{% endif %}-md.{{ page.cover.extension }} 1200w,
+    /images/covers/{{ page.cover.name | slugify }}{% if page.cover.artist %}-by-{{ page.cover.artist | replace: ' ', '' | slugify }}{% endif %}-sm.{{ page.cover.extension }} 960w"
+    sizes="100vw"
+    alt="Page page.cover image by {{ page.cover.artist }}"
+    class="cover-{{ page.cover.name | slugify }}">
+  {% endif %}
+</cover>
+{% if page.cover %}<div class="cover-credit"><span>{{ page.cover.name }} by {{ page.cover.artist}}</span> <icon class="icon-exhibit"></icon></div>{% endif %}
+
+{% if site.archive %}<a class="archive-notice" href="http://github.com/everfreenw/efnw2018-archive" target="_blank">Archived 2018 Website</a>{% endif %}
+
+<header class="page-header no-margin-bottom">
+  <container>
+      <div class="ribbon" style="{% if page.cover.offset %}margin-top: {{ page.cover.offset}};{% endif %}"><div class="ribbon-content"><h1 class="title">{{ page.title }}</h1></div></div>{% if page.subtitle %}
+      <p class="lead">{{ page.subtitle }}</p>
+{% endif %}  </container>
+</header>
+
+<section class="content">
+  <container>
+    {% if content != blank %}
+    <article class="post-content">
+      {{ content }}
+    </article>
+    {% endif %}
+  </container>
+</section>
+
+{% if page.cards or page.cards-data %}{% include cards.html %}{% endif %}
+{% if page.timeline or page.timeline-data %}{% include timeline.html %}{% endif %}
+{% if page.artcards or page.artcards-data %}{% include artcards.html %}{% endif %}
+
+{% if page.reef or page.cover == null and page.cover-image == null %}
+<div class="bg-reef bg-reef-subtle">
+  <!-- TODO: Generate assets for diffeerent sizes -->
+  <img src="/images/bg/dwelling-md.png" srcset="
+  /images/bg/dwelling-4k.png 3300w,
+  /images/bg/dwelling-hd.png 2000w,
+  /images/bg/dwelling-lg.png 1600w,
+  /images/bg/dwelling-md.png 1200w,
+  /images/bg/dwelling-sm.png 960w"
+  sizes="100vw"
+  alt="Bottom of the ocean floor"></div>
+{% endif %}

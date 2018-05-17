@@ -1,0 +1,40 @@
+{% if page.cards-data %}{% assign cards = site.data.[page.cards-data] %}{% endif %}
+{% if page.cards %}{% assign cards = page.cards %}{% endif %}
+{% if cards %}
+
+<section class="content text-center" id="cards">
+  <container>
+    <row float="center">
+      {% for person in cards %}
+      <columnz width="33" class="person" id="{{ person.name | slugify }}" style="min-width: 350px">
+        <div class="card" style="background: {{ person.background }}; color: {{ person.foreground }}">
+          {% if person.banner %}<div class="card-cover" style="background-image: url({{ site.baseurl }}{{ person.banner }});height: {% if person.avatar %}12em{% else %}20em{% endif %};"></div>{% endif %}
+          {% if person.avatar %}<div class="card-avatar" style="background-image: url({{ site.baseurl }}{{ person.avatar }})"></div>{% endif %}
+          <div class="card-content">
+
+            <h1>{{ person.name }}</h1>
+            {% if person.aka %}<h2>{{ person.aka }}</h2>{% endif %}
+            {% if person.time %}<h3>Performing {{ person.time }}</h3>{% endif %}
+          </div>
+          <div class="card-links">
+            <row>
+              {% if person.bio %}<div class="column">
+                <a href="#{{ person.name | slugify }}-target" id="#{{ person.name | slugify }}-target" style="color: {{ person.background }}; background: {{ person.foreground }}" onclick="toggleBio('#{{ person.name | slugify }}-bio')"><icon class="icon-post-chat"></icon> Bio </a>
+              </div>{% endif %}
+              {% if person.website %}<div class="column"><a href="{{ person.website }}" target="_blank" style="color: {{ person.background }}; background: {{ person.foreground }}"><icon class="icon-explore"></icon> Website</a></div>{% endif %}
+              {% if person.twitter %}<div class="column"><a href="https://twitter.com/{{ person.twitter }}" target="_blank" style="color: {{ person.background }}; background: {{ person.foreground }}"><icon class="icon-twitter"></icon> Twitter</a></div>{% endif %}
+              {% if person.deviantart %}<div class="column"><a href="http://{{ person.deviantart }}.deviantart.com" target="_blank" class="link-deviantart" style="color: {{ person.background }}; background: {{ person.foreground }}"><icon class="icon-deviantart"></icon> {{ person.deviantart }}</a></div>{% endif %}
+              {% if person.tumblr %}<div class="column"><a href="http://{{ person.tumblr }}.tumblr.com" target="_blank" class="link-tumblr" style="color: {{ person.background }}; background: {{ person.foreground }}"><icon class="icon-tumblr"></icon> Tumblr</a></div>{% endif %}
+              {% if person.youtube %}<div class="column"><a href="{{ person.youtube }}" target="_blank" class="link-youtube" style="color: {{ person.background }}; background: {{ person.foreground }}"><icon class="icon-youtube"></icon> {{ person.youtube }}</a></div>{% endif %}
+            </row>
+          </div>
+          {% if person.bio %}<div class="card-bio" id="{{ person.name | slugify }}-bio">
+            {{ person.bio }}
+          </div>{% endif %}
+        </div>
+      </columnz>
+      {% endfor %}
+    </row>
+  </container>
+</section>
+{% endif %}

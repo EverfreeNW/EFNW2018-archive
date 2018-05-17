@@ -1,0 +1,216 @@
+#navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0;
+  z-index: 9001;
+
+  background-image: url(/images/bg/navbar.png);
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  color: $white;
+  box-shadow: none;
+  padding-bottom: 30px;
+
+  .nav-mane {
+    background: transparent;
+    @extend .transition;
+    margin-left: 0;
+    .nav-left, .nav-right {
+      padding: 1.5em 0;
+      font-size: 1.25em;
+      height: 1.25em;
+      @include media-query(960px) {
+        font-size: 1em;
+        padding: 2em 0;
+        height: auto;
+      }
+    }
+    a {
+      color: $efnw-green-brand;
+      @include media-query($on-tablet + 50px) {
+        padding: .5em .75em;
+      }
+      padding: .5em 1em;
+      line-height: 1em;
+      font-family: $heading-font-family;
+      font-weight: bold;
+      @extend .transition;
+      &:not(.nav-logo-link):hover {
+        // background: $color-5;
+      }
+      h1 {
+        margin-top: -10px;
+      }
+    }
+    .nav-logo {
+      position: relative;
+      max-width: 150px;
+      padding-left: 0;
+      padding-top: 1em;
+      @include media-query($on-tablet) {
+        display: none;
+      }
+      a {
+        height: auto;
+        padding: 0;
+        transition: all 300ms ease;
+        &:hover {
+          transform: scale(1.1);
+        }
+        img {
+          max-height: 5em;
+          border-radius: 50%;
+          margin-bottom: 0;
+          box-shadow: 0 0 0 4px white;
+        }
+      }
+    }
+  }
+  // Smaller device navigation
+  .nav-bar-top {
+    display: none;
+  }
+  @include media-query($on-tablet) {
+    position: fixed;
+    padding-bottom: 20px;
+    .toggle-menu {
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background: none;
+      color: $efnw-green-brand;
+      font-size: 28px;
+      padding: 0 10px;
+    }
+    .nav-bar-top {
+      display: block;
+      line-height: 50px;
+      // background: rgba(0,0,0,.5);
+      &-logo {
+        display: block;
+        text-align: center;
+        h3 {
+          color: $efnw-green-brand;
+          font-family: $title-font-family;
+          line-height: 2em;
+          margin-bottom: 0;
+        }
+      }
+    }
+    .nav-mane {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: $efnw-yellow;
+      margin-top: 45px;
+      margin-left: 0;
+      height: 0;
+      overflow: hidden;
+      background: $efnw-yellow;
+      box-shadow: 0 4px 1px rgba(0,0,0,.5);
+      .nav-left, .nav-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: left!important;
+        margin-bottom: 2px;
+        padding: .5em .75em!important;
+        a {
+          display: inline-block;
+          padding: 1em 2em;
+          &:hover {
+            background: darken($efnw-yellow, 10%);
+          }
+        }
+      }
+    }
+  }
+  @include media-query($on-tablet) {
+    .beta-link {
+      position: absolute;
+      left: 50%;
+      TOP: 20px;
+      color: white;
+      margin-left: 48px;
+    }
+  }
+}
+
+body.nav-open {
+  #navigation {
+    @include media-query($on-tablet) {
+      .nav-bar-top {
+        // background:
+      }
+      .nav-mane {
+        height: auto;
+        overflow: visible;
+      }
+    }
+  }
+}
+
+.nav-dropdown {
+  // @include media-query($on-tablet) {
+  //   display: none;
+  // }
+  height: 50px;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      position: relative;
+      display: inline;
+      border-radius: 4px;
+      ul {
+        visibility: hidden;
+        position: absolute;
+        padding: 10px;
+        min-width: 180px;
+        background: $efnw-yellow;
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out 0s;
+        opacity: 0;
+        z-index: 5;
+        li {
+          text-align: center;
+          float: none;
+          border: 0px;
+        }
+      }
+    }
+    li:hover{
+      background-color: #d5c19e;
+      ul {
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.3s ease-in-out 0s;
+      }
+    }
+  }
+  ul:after {
+    clear: both;
+  }
+  a {
+    display: block;
+    padding: 2px;
+    white-space:nowrap;
+  }
+}
+
+.nav-dropdown-left {
+  ul li {
+    float: right;
+  }
+}
+
+.nav-dropdown-right {
+  ul li {
+    float: left;
+  }
+}

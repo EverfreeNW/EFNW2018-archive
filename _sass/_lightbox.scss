@@ -1,0 +1,40 @@
+// Simple Image Lightbox
+// By msguerra74
+// https://codepen.io/msguerra74/pen/idoGp
+
+.lightbox-opened {
+  background-color: #333;
+  background-color: rgba(#333, 0.9);
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  overflow-y: scroll;
+  padding: 24px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  
+  &:before {
+    background-color: #333;
+    background-color: rgba(#333, 0.9);
+    color: #eee;
+    content: "x";
+    font-family: sans-serif;
+    padding: 6px 12px;
+    position: fixed;
+    text-transform: uppercase;
+  }
+  
+  img {
+    box-shadow: 0 0 6px 3px #333;
+    margin-top: 50px;
+  }
+}
+
+// No Background Scroll
+
+.no-scroll {
+  overflow: hidden;
+}

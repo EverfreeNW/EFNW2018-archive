@@ -1,0 +1,354 @@
+// Legacy imported code
+.page-events container, #guests container {
+  max-width: -webkit-calc(1440px - (36px * 2));
+  max-width: calc(1440px - (36px * 2));
+}
+
+.fixedwidth {
+  margin: 0 auto;
+  max-width: 100%;
+  padding-bottom: 20px;
+  padding-top: 2em;
+  width: 1060px;
+}
+
+div.tab small {
+  padding-top: 0.4em;
+}
+
+div.calendar div.roomHeader {
+  padding-top: 0.5em;
+}
+
+.darkbox {
+  margin: 2em;
+  border-radius: 4px;
+  padding: 2em;
+  font-size: 0.8em;
+}
+
+.darkbox a:hover,
+.darkbox a:focus {
+  color: #018e67;
+}
+
+.darkbox h1,
+.darkbox h2,
+.darkbox h3 {
+  margin-top: 1em;
+}
+
+.darkbox h1.title-font {
+  margin-top: 0;
+}
+
+.autograph-hours {
+  color: #333;
+  font-size: 0.8em;
+  border: 1px solid #d0d0d0;
+  border-radius: 5px;
+}
+
+.autograph-hours>thead>tr>th {
+  background: white;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.autograph-hours>tbody>tr>td:first-child {
+  font-weight: bold;
+}
+
+.autograph-hours>tbody>tr>td {
+  padding: 2px 10px;
+}
+
+.autograph-hours>tbody>tr:nth-child(even)>td {
+  background: white;
+}
+
+.autograph-hours>tbody>tr:nth-child(odd)>td {
+  background: #e0e0e0;
+}
+
+.autograph-hours small {
+  display: inline-block;
+  border: 2px solid;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: normal;
+  margin-right: 5px;
+  vertical-align: middle;
+  font-size: 0.6em;
+  line-height: 1em;
+}
+
+.tab-btn {
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.room-hours {
+  background: #f0f0f0;
+  color: #333;
+  float: left;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  font-size: 0.85em;
+  border: 2px solid;
+  width: 280px;
+  min-height: 260px
+}
+
+.room-hours ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 1em;
+}
+
+div.tab {
+  background: #007549;
+  width: 32%;
+  margin-right: 1px;
+  display: inline-block;
+  padding: 10px;
+  transition: all 300ms ease;
+}
+
+@media (max-width: 767px) {
+  div.tab {
+    font-size: 0.8em;
+  }
+}
+
+div.tab small {
+  display: inline-block;
+  border: 2px solid;
+  border-radius: 4px;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  margin-right: 1em;
+  line-height: 1em;
+}
+
+div.tab.selected,
+div.tab:hover {
+  padding-top: 15px;
+}
+
+div.selected {
+  background: #5cb85c
+}
+
+div.calendar {
+  position: relative;
+  font-size: 0.8em;
+  line-height: 1em;
+  color: #333
+}
+
+div.calendar a {
+  color: #0074a2
+}
+
+div.calendar div.cal-row {
+  clear: both;
+}
+
+div.calendar div.cell {
+  position: absolute;
+  float: left;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: #999;
+  width: 90px;
+  box-sizing: border-box;
+  height: 25px;
+  margin: 0;
+  line-height: 25px;
+  padding: 0 6px;
+}
+
+div.calendar div.even-cell {
+  background: #f0f0f0
+}
+
+div.calendar div.odd-cell {
+  background: #FFF
+}
+
+div.calendar div.left-cell {
+  border-left-width: 1px;
+}
+
+div.calendar div.top-cell {
+  border-top-width: 1px;
+  background-color: #5cb85c;
+  color: white;
+  border-color: #5cb85c !important;
+  height: 55px;
+}
+
+div.calendar div.bottom-cell {
+  border-bottom-width: 1px;
+}
+
+div.calendar div.roomHeader {
+  font-size: 0.7em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.1em;
+}
+
+#mysched div.roomHeader {
+  font-size: 1.1em;
+}
+
+div.calendar div.event {
+  position: absolute;
+}
+
+div.event {
+  width: 68px;
+  box-sizing: content-box;
+  background: #FFDBDB;
+  border-radius: 0.5em;
+  padding: 2px;
+  font-size: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  overflow: hidden;
+  border-radius: 2px;
+  border-width: 2px;
+  line-height: 9px;
+  border-left-width: 2px;
+  margin-left: 2px;
+  color: black;
+  font-family: Verdana, sans-serif;
+}
+
+div.event>div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+div.event .event-icon {
+  width: 2em;
+  margin: 0 0 2px 2px;
+  float: right;
+}
+
+div.eventDesc {
+  position: absolute;
+  width: 300px;
+  background: #FFFFFF;
+  border-radius: 0.5em;
+  border: 2px solid #007549;
+  padding: 5px;
+  font-size: 0.8em;
+  display: none;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 2px 2px 10px 2px gray;
+}
+
+div.eventDesc .closeEvent {
+  float: right;
+  font-size: 2em;
+  color: #888;
+  cursor: pointer
+}
+
+div.eventDesc .closeEvent:hover {
+  color: #222
+}
+
+div.eventDesc .closeEvent::after {
+  content: '\00D7';
+}
+
+div.eventDesc .title {
+  font-weight: bold;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+div.eventDesc .icon-clock {
+  font-size: 0.8em;
+}
+
+div.eventDesc a.addto {
+  display: block;
+  background-color: #0074a2;
+  color: white;
+  margin: -5px;
+  text-align: center;
+  padding: 8px 0;
+  transition: all 200ms ease-in-out;
+}
+
+div.eventDesc a.addto:hover {
+  background-color: #2EABDC;
+}
+
+div.eventDesc a.addto:active {
+  background-color: #25637B;
+}
+
+#track-key {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: left;
+  min-height: 40px;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75em;
+}
+
+@media (min-width: 876px) and (max-width: 1075px) {
+  #track-key {
+    min-height: 60px;
+  }
+}
+
+@media (max-width: 875px) {
+  #track-key {
+    height: 100px;
+  }
+}
+
+#track-key>li {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#track-key .legend-color {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 4px;
+  margin-right: 0.5em;
+  border: 2px solid black;
+}
+
+@media (max-width: 767px) {
+  .darkbox {
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+  }
+}

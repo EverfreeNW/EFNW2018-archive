@@ -1,0 +1,82 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+@import "colors";
+
+// Our variables
+$base-font-family: "Open Sans", Helvetica, Arial, sans-serif;
+$base-font-size:   18px;
+$base-line-height: 1.65;
+
+$title-font-family: "Catseye Bold", "Catseye", $base-font-family;
+$heading-font-family: "Hobeaux Light", "Hobeaux", $base-font-family;
+$accent-font-family: $base-font-family;
+
+$small-font-size:  $base-font-size * 0.875;
+
+$spacing-unit:     36px;
+$border-radius:	   8px;
+
+// Max width of the content area
+// 1160px for medium, 960px for small
+$content-width:    1280px;
+
+$on-mobile:        600px;
+$on-tablet:        800px;
+
+// Color pallete
+$primary:          $efnw-blue-dark;
+$secondary:        $efnw-purple;
+
+$red:              #F44336;
+$white:            $efnw-yellow-light;
+$black:            #3c3836;
+
+$text-color:       $efnw-yellow-light;
+$background-color: $efnw-blue-sea;
+$brand-color:      $primary;
+
+$gray:       #828282;
+$gray-light: lighten($gray, 40%);
+$gray-dark:  darken($gray, 25%);
+
+// Using media queries with like this:
+// @include media-query($on-mobile) {
+//  .wrapper {
+//    padding-right: $spacing-unit / 2;
+//    padding-left: $spacing-unit / 2;
+//  }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+// Font location
+$icomoon-font-path: "../icons/fonts";
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+  "base",
+  "grid",
+  "forms",
+  "iconsvars",
+  "icons",
+  "fireworks",
+  "nav",
+  "header",
+  "cards",
+  "home",
+  "social",
+  "footer",
+  "site",
+  "efnw-events",
+  "efnw-open-positions",
+  "efnw-registration",
+  "efnw-vendors",
+  "mapbox-gl",
+  "lightbox"
+;

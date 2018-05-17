@@ -1,0 +1,59 @@
+// Legacy impoted code
+.hidden {
+  display: none;
+}
+
+@media(max-width: 340px) {
+  .title {
+    font-size: 3em;
+  }
+}
+
+.position {
+  width: 100%;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.position_title {
+  cursor: pointer;
+}
+
+.position_title i.fa-user {
+  font-size: 1.5em;
+  border: 3px solid;
+  border-radius: 3px;
+  padding: 3px;
+  margin-right: 0.5em;
+}
+
+.position_title>.position_desc>h3 {
+  margin-top: 0;
+}
+
+.position_title>.position_desc {
+  position: absolute;
+  background: #3c9953;
+  color: white;
+  padding: 10px;
+  width: 600px;
+  max-width: 90%;
+  border-radius: 4px;
+  top: 100%;
+  left: 20px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+  box-shadow: 3px 3px 5px #999;
+  -webkit-transform: translateY(-25px);
+  transform: translateY(-25px);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.position_title:hover>.position_desc {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}

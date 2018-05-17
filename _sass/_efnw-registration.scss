@@ -1,0 +1,94 @@
+// Legacy impoted code
+// Tab settings: 4 spaces
+#purchaseBadgeForm {
+    #parentInfo,
+    #shipInfo {
+        display: none;
+        margin-top: 40px;
+    }
+    #gift_check {
+        span {
+            text-align: left;
+        }
+    }
+    .paypal {
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    .paypal-loading {
+        margin-top: 20px;
+    }
+    .r-attention,
+    .r-attention+span.select2 {
+        box-shadow: 0 0 5px 0 red;
+        border: 2px solid red;
+    }
+    .badge-preview {
+        color: #000000;
+        background: #efefef;
+        border-radius: 5px;
+        width: 250px;
+        height: 80px;
+    }
+    #invoice {
+        background: #f0f0f0;
+        border: 0px;
+        border-radius: 4px;
+        padding: 1em;
+    }
+    #invoice .lineitem {
+        width: 100%;
+    }
+    #invoice .lineitem>div {
+        display: inline-block;
+    }
+    #invoice .lineitem>div:first-child {
+        text-align: left;
+        width: 80%;
+    }
+    #invoice .lineitem>div:last-child {
+        text-align: right;
+        width: 20%;
+    }
+    #invoice .totalLineitem {
+        width: 100%;
+        border-top: 1px solid black;
+    }
+    #invoice .totalLineitem>div {
+        display: inline-block;
+    }
+    #invoice .totalLineitem>div:first-child {
+        text-align: right;
+        width: 80%;
+    }
+    #invoice .totalLineitem>div:last-child {
+        text-align: right;
+        width: 20%;
+    }
+    .at-the-door .text-desc {
+        text-align: center
+    }
+    .at-the-door .table-title {
+        font-size: 1.5em;
+    }
+    .at-the-door table td {
+        padding: 2px 5px;
+    }
+    #confirm_form button {
+        background: #018e67;
+        color: white;
+        font-size: 1.2em;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px
+    }
+    span.fullprice {
+        color: #aaa;
+        text-decoration: line-through;
+    }
+    span.discountprice {
+        color: red;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+}
