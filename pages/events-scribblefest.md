@@ -7,6 +7,7 @@ cover:
   name: Scribblefest
   extension: jpg
   artist: Talons of Ice and Fire
+  offset: 45vw
 background: "#04001b"
 preview: "Greetings aspiring writers! We run an online writing contest every year: Scribblefest!"
 ---
