@@ -40,6 +40,8 @@ My Little Pony: Friendship is Magic and related media belong exclusively to Hasb
 | ````feed.xml```` | RSS feed for blog posts. |
 | ````robots.txt```` | Bot access settings, please change before deploying to production. |
 
+NOTE: The code used to generate the schedule, vendors, and transaction pages are not open source, so HTML outputs are used instead. We hope to change that in a future year.
+
 ### Running the site locally
 
 Make sure you have `ruby` and `bundler` installed, then...
@@ -65,10 +67,6 @@ bundle exec jekyll serve --port 4000 --watch --incremental
 | File |  |
 | --- | --- |
 | ````events.json```` | Data file for event calendar. |
-
-## Note
-
-The code used to generate the schedule, vendors, and transaction pages are not open source, so HTML outputs are used instead. We hope to change that in a future year.
 
 ### Pages
 
