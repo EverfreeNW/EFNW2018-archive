@@ -66,6 +66,10 @@ bundle exec jekyll serve --port 4000 --watch --incremental
 | --- | --- |
 | ````events.json```` | Data file for event calendar. |
 
+## Note
+
+The code used to generate the schedule, vendors, and transaction pages are not open source, so HTML outputs are used instead. We hope to change that in a future year.
+
 ### Pages
 
 <!-- **Blog posts can be easily edited and managed online via http://prose.io/#user/repo.** -->
