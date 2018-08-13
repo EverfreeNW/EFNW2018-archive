@@ -90,7 +90,7 @@ Be advised, when you leave the lot, the timer resets! Before returning to your v
 <!-- Scripts below -->
 <script src="/scripts/mapbox-gl-0.40.1.js"></script>
 <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoidmljbG91IiwiYSI6Imo2TnUwRVEifQ.Lym1WQrkrRlIXtSKS7n15w';
+  mapboxgl.accessToken = 'pk.eyJ1IjoidmljbG91IiwiYSI6InlGTGg2VWcifQ.JtZv4b1btXB1FqNK_yMUCQ';
   var hotel = [-122.294114, 47.435511];
   var map = new mapboxgl.Map({
       container: 'map',
